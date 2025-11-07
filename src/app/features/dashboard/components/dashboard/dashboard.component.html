@@ -1,0 +1,76 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm mb-6">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Dashboard</h1>
+        <div class="flex items-center gap-4">
+          @if (user$(); as user) {
+            <span class="text-gray-700">{{ user.name }}</span>
+          }
+          <button mat-button color="primary" routerLink="/products">
+            <mat-icon>inventory</mat-icon>
+            Products
+          </button>
+          <button mat-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-6">
+    <mat-grid-list cols="3" rowHeight="200px" gutterSize="16">
+      <!-- Total Products Card -->
+      <mat-grid-tile>
+        <mat-card class="w-full h-full flex flex-col justify-center items-center shadow-lg">
+          <mat-icon class="text-5xl text-blue-500 mb-2">inventory</mat-icon>
+          <h2 class="text-3xl font-bold mb-1">{{ totalProducts$ | async }}</h2>
+          <p class="text-gray-600">Total Products</p>
+        </mat-card>
+      </mat-grid-tile>
+
+      <!-- Low Stock Card -->
+      <mat-grid-tile>
+        <mat-card class="w-full h-full flex flex-col justify-center items-center shadow-lg">
+          <mat-icon class="text-5xl text-yellow-500 mb-2">warning</mat-icon>
+          <h2 class="text-3xl font-bold mb-1">{{ lowStockProducts$ | async }}</h2>
+          <p class="text-gray-600">Low Stock Items</p>
+        </mat-card>
+      </mat-grid-tile>
+
+      <!-- Quick Actions Card -->
+      <mat-grid-tile>
+        <mat-card class="w-full h-full flex flex-col justify-center items-center shadow-lg">
+          <mat-icon class="text-5xl text-green-500 mb-2">add_circle</mat-icon>
+          <h2 class="text-xl font-bold mb-2">Quick Actions</h2>
+          <a routerLink="/products/new" mat-raised-button color="primary" class="mt-2">
+            Add Product
+          </a>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- Welcome Section -->
+    <mat-card class="mt-6 shadow-lg">
+      <mat-card-content class="p-6">
+        <h2 class="text-2xl font-bold mb-4">Welcome to My Enterprise App</h2>
+        <p class="text-gray-700 mb-4">
+          This is a modern Angular enterprise application built with best practices including:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>Angular 20 with Standalone Components</li>
+          <li>NgRx for state management</li>
+          <li>Angular Material + Tailwind CSS for UI</li>
+          <li>Lazy-loaded feature modules</li>
+          <li>JWT authentication with interceptors</li>
+          <li>Comprehensive error handling</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
