@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -29,14 +29,14 @@ import { Product } from '../../../../features/products/models/product.model';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
+  private authService = inject(AuthService);
+  private store = inject(Store<AppState>);
+
   user$ = this.authService.currentUser;
   totalProducts$!: Observable<number>;
   lowStockProducts$!: Observable<number>;
 
-  constructor(
-    private authService: AuthService,
-    private store: Store<AppState>
-  ) {
+  constructor() {
     this.totalProducts$ = this.store
       .select(selectAllProducts)
       .pipe(map((products: Product[]) => products.length));
