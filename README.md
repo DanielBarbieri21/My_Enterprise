@@ -274,7 +274,7 @@ Este projeto é privado e proprietário.
 
 ## 📞 Suporte
 
-Para suporte, entre em contato através do email: [seu-email@example.com]
+Para suporte, entre em contato através do email: [dibarbieri21@gmil.com]
 
 ---
 ## 👨‍💻 Desenvolvedor
@@ -284,3 +284,4 @@ Para suporte, entre em contato através do email: [seu-email@example.com]
 - 💻 Especialista em C/C++
 - 🚀 Entusiasta de Tecnologia
 - 📧 Contato: [Daniel Barbieri](mailto:dibarbieri21@gmail.com)
+
