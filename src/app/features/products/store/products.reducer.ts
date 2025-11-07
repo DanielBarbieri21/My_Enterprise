@@ -18,7 +18,7 @@ import { Product } from '../models/product.model';
 export interface ProductsState {
   list: Product[];
   loading: boolean;
-  error: any | null;
+  error: unknown | null;
 }
 
 export const initialState: ProductsState = {

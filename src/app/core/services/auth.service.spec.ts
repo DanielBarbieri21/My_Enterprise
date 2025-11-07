@@ -51,8 +51,9 @@ describe('AuthService', () => {
 
   it('should fail login with invalid credentials', (done) => {
     service.login('invalid@example.com', 'wrong').subscribe({
-      error: (error) => {
-        expect(error.message).toBe('Invalid credentials');
+      error: (error: unknown) => {
+        const errorObj = error instanceof Error ? error : new Error(String(error));
+        expect(errorObj.message).toBe('Credenciais inválidas');
         expect(service.isAuthenticated()).toBe(false);
         done();
       },

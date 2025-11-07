@@ -5,13 +5,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService, User } from '../../../../core/services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../state/app.reducer';
 import { selectAllProducts } from '../../../../features/products/store/products.selectors';
 import { loadProducts } from '../../../../features/products/store/products.actions';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Product } from '../../../../features/products/models/product.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +29,7 @@ import { map } from 'rxjs/operators';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
-  user$!: any;
+  user$ = this.authService.currentUser;
   totalProducts$!: Observable<number>;
   lowStockProducts$!: Observable<number>;
 
@@ -36,14 +37,13 @@ export class DashboardComponent implements OnInit {
     private authService: AuthService,
     private store: Store<AppState>
   ) {
-    this.user$ = this.authService.currentUser;
     this.totalProducts$ = this.store.select(selectAllProducts).pipe(
-      map((products: any[]) => products.length)
+      map((products: Product[]) => products.length)
     );
     this.lowStockProducts$ = this.store
       .select(selectAllProducts)
       .pipe(
-        map((products: any[]) => products.filter((p: any) => p.stock < 20).length)
+        map((products: Product[]) => products.filter((p: Product) => p.stock < 20).length)
       );
   }
 

@@ -66,10 +66,11 @@ export class LoginComponent {
             console.error('Navigation error:', err);
           });
         },
-        error: (err: any) => {
+        error: (err: unknown) => {
           console.error('Login error:', err);
           this.loading = false;
-          this.error = err?.message || 'Falha no login. Por favor, tente novamente.';
+          const errorMessage = err instanceof Error ? err.message : 'Falha no login. Por favor, tente novamente.';
+          this.error = errorMessage;
           this.logger.error('Login failed', err);
         },
       });

@@ -1,4 +1,6 @@
-import 'jest-preset-angular/setup-jest';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+
+setupZoneTestEnv();
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
@@ -9,5 +11,5 @@ global.IntersectionObserver = class IntersectionObserver {
     return [];
   }
   unobserve() {}
-} as any;
+} as unknown as typeof IntersectionObserver;
 

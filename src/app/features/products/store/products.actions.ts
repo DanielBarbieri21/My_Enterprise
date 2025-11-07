@@ -8,7 +8,7 @@ export const loadProductsSuccess = createAction(
 );
 export const loadProductsFail = createAction(
   '[Products] Load Fail',
-  props<{ error: any }>()
+  props<{ error: unknown }>()
 );
 
 export const createProduct = createAction(
@@ -21,7 +21,7 @@ export const createProductSuccess = createAction(
 );
 export const createProductFail = createAction(
   '[Products] Create Fail',
-  props<{ error: any }>()
+  props<{ error: unknown }>()
 );
 
 export const updateProduct = createAction(
@@ -34,7 +34,7 @@ export const updateProductSuccess = createAction(
 );
 export const updateProductFail = createAction(
   '[Products] Update Fail',
-  props<{ error: any }>()
+  props<{ error: unknown }>()
 );
 
 export const deleteProduct = createAction('[Products] Delete', props<{ id: string }>());
@@ -44,6 +44,6 @@ export const deleteProductSuccess = createAction(
 );
 export const deleteProductFail = createAction(
   '[Products] Delete Fail',
-  props<{ error: any }>()
+  props<{ error: unknown }>()
 );
 

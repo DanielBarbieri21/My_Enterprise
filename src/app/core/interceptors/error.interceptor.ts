@@ -17,16 +17,6 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        let errorMessage = 'An unknown error occurred';
-
-        if (error.error instanceof ErrorEvent) {
-          // Client-side error
-          errorMessage = `Error: ${error.error.message}`;
-        } else {
-          // Server-side error
-          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-        }
-
         this.logger.error('HTTP Error', error);
 
         return throwError(() => error);

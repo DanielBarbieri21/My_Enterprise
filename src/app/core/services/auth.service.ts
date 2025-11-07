@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 
 export interface User {
   id: string;
