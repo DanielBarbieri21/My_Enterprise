@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { AuthService, User } from '../../../../core/services/auth.service';
+import { AuthService } from '../../../../core/services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../state/app.reducer';
 import { selectAllProducts } from '../../../../features/products/store/products.selectors';
