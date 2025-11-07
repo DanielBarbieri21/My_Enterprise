@@ -23,4 +23,3 @@ export const selectProductById = (id: string) =>
   createSelector(selectAllProducts, (products: Product[]) =>
     products.find((p: Product) => p.id === id)
   );
-

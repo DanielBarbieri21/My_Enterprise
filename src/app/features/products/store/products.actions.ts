@@ -6,10 +6,7 @@ export const loadProductsSuccess = createAction(
   '[Products] Load Success',
   props<{ products: Product[] }>()
 );
-export const loadProductsFail = createAction(
-  '[Products] Load Fail',
-  props<{ error: unknown }>()
-);
+export const loadProductsFail = createAction('[Products] Load Fail', props<{ error: unknown }>());
 
 export const createProduct = createAction(
   '[Products] Create',
@@ -46,4 +43,3 @@ export const deleteProductFail = createAction(
   '[Products] Delete Fail',
   props<{ error: unknown }>()
 );
-

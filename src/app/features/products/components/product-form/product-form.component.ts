@@ -55,14 +55,16 @@ export class ProductFormComponent implements OnInit {
     this.isEditMode = !!this.productId;
 
     if (this.isEditMode && this.productId) {
-      this.store.select(selectProductById(this.productId)).subscribe((product: Product | undefined) => {
-        if (product) {
-          this.productForm.patchValue(product);
-        } else {
-          // If product not in store, load products
-          this.store.dispatch(loadProducts());
-        }
-      });
+      this.store
+        .select(selectProductById(this.productId))
+        .subscribe((product: Product | undefined) => {
+          if (product) {
+            this.productForm.patchValue(product);
+          } else {
+            // If product not in store, load products
+            this.store.dispatch(loadProducts());
+          }
+        });
     }
   }
 
@@ -89,4 +91,3 @@ export class ProductFormComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 }
-

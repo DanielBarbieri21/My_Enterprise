@@ -31,12 +31,17 @@
             matInput
             type="password"
             formControlName="password"
-            placeholder="Digite sua senha" />
+            placeholder="Digite sua senha"
+          />
           <mat-icon matPrefix>lock</mat-icon>
-          @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+          @if (
+            loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched
+          ) {
             <mat-error>Senha é obrigatória</mat-error>
           }
-          @if (loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched) {
+          @if (
+            loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched
+          ) {
             <mat-error>A senha deve ter pelo menos 6 caracteres</mat-error>
           }
         </mat-form-field>
@@ -46,7 +51,8 @@
           color="primary"
           type="submit"
           class="w-full mt-4"
-          [disabled]="loginForm.invalid || loading">
+          [disabled]="loginForm.invalid || loading"
+        >
           @if (loading) {
             <mat-spinner diameter="20" class="inline-block"></mat-spinner>
           } @else {
@@ -57,10 +63,9 @@
 
       <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded text-sm text-gray-700">
         <p class="font-semibold mb-2">Credenciais de demonstração:</p>
-        <p>E-mail: admin@example.com</p>
+        <p>E-mail: admin&#64;example.com</p>
         <p>Senha: admin123</p>
       </div>
     </mat-card-content>
   </mat-card>
 </div>
-

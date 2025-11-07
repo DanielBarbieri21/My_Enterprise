@@ -37,14 +37,12 @@ export class DashboardComponent implements OnInit {
     private authService: AuthService,
     private store: Store<AppState>
   ) {
-    this.totalProducts$ = this.store.select(selectAllProducts).pipe(
-      map((products: Product[]) => products.length)
-    );
+    this.totalProducts$ = this.store
+      .select(selectAllProducts)
+      .pipe(map((products: Product[]) => products.length));
     this.lowStockProducts$ = this.store
       .select(selectAllProducts)
-      .pipe(
-        map((products: Product[]) => products.filter((p: Product) => p.stock < 20).length)
-      );
+      .pipe(map((products: Product[]) => products.filter((p: Product) => p.stock < 20).length));
   }
 
   ngOnInit(): void {
@@ -55,4 +53,3 @@ export class DashboardComponent implements OnInit {
     this.authService.logout();
   }
 }
-

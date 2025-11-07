@@ -4,4 +4,3 @@ export const environment = {
   appName: 'My Enterprise App',
   version: '1.0.0',
 };
-

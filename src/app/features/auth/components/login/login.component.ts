@@ -53,7 +53,7 @@ export class LoginComponent {
       this.error = null;
 
       const { email, password } = this.loginForm.value;
-      
+
       // Debug log
       console.log('Attempting login with:', { email, password: '***' });
 
@@ -69,17 +69,17 @@ export class LoginComponent {
         error: (err: unknown) => {
           console.error('Login error:', err);
           this.loading = false;
-          const errorMessage = err instanceof Error ? err.message : 'Falha no login. Por favor, tente novamente.';
+          const errorMessage =
+            err instanceof Error ? err.message : 'Falha no login. Por favor, tente novamente.';
           this.error = errorMessage;
           this.logger.error('Login failed', err);
         },
       });
     } else {
       // Mark all fields as touched to show validation errors
-      Object.keys(this.loginForm.controls).forEach(key => {
+      Object.keys(this.loginForm.controls).forEach((key) => {
         this.loginForm.get(key)?.markAsTouched();
       });
     }
   }
 }
-

@@ -3,8 +3,7 @@ import { Routes } from '@angular/router';
 export const authRoutes: Routes = [
   {
     path: 'login',
-    loadComponent: () =>
-      import('./components/login/login.component').then((m) => m.LoginComponent),
+    loadComponent: () => import('./components/login/login.component').then((m) => m.LoginComponent),
   },
   {
     path: '',
@@ -12,4 +11,3 @@ export const authRoutes: Routes = [
     pathMatch: 'full',
   },
 ];
-

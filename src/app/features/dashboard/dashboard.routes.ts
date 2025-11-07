@@ -7,4 +7,3 @@ export const dashboardRoutes: Routes = [
       import('./components/dashboard/dashboard.component').then((m) => m.DashboardComponent),
   },
 ];
-

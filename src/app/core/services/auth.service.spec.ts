@@ -68,4 +68,3 @@ describe('AuthService', () => {
     expect(service.currentUser()).toBeNull();
   });
 });
-

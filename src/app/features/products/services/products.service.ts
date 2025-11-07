@@ -74,7 +74,11 @@ export class ProductsService {
     // Mock implementation
     const index = this.mockProducts.findIndex((p) => p.id === id);
     if (index !== -1) {
-      this.mockProducts[index] = { ...this.mockProducts[index], ...payload, updatedAt: new Date().toISOString() };
+      this.mockProducts[index] = {
+        ...this.mockProducts[index],
+        ...payload,
+        updatedAt: new Date().toISOString(),
+      };
       return of({ ...this.mockProducts[index] }).pipe(delay(500));
     }
     throw new Error('Product not found');
@@ -92,4 +96,3 @@ export class ProductsService {
     // return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 }
-
